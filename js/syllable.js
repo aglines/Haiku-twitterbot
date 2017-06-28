@@ -1,13 +1,6 @@
 const datamuse = require('datamuse');
 var Bot = require('./../js/bot.js').botModule;
 
-// create object outside the stuff
-// create property that you want outside the stuff
-// inside the stuff, reference it with this.
-
-
-
-
   datamuse.request('words?sp=flower&md=s&max=1')
   .then((json) => {
       syllables = json[0].numSyllables;
@@ -17,11 +10,18 @@ var Bot = require('./../js/bot.js').botModule;
       console.log(newWord, syllables);
     });
 
-//
-// WordToTweet();
-// console.log(WordToTweet());
 
-// WordToTweet.exports = {
-//   tweetWord: newWord,
-//   tweetSyllables:  syllables
-// }
+
+// console.log("JSON dict length ", dictionary.length);
+
+var dictionary = JSON.parse('["one", "two", "OK", "four"]');
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+newRandomNumber = getRandomIntInclusive(1, dictionary.length-1);
+console.log("new rand # " + newRandomNumber);
+console.log(dictionary[newRandomNumber]);

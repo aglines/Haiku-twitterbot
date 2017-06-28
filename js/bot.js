@@ -16,9 +16,8 @@ function tweetNow(tweetTxt) {
       else{
         console.log("Gratitude shown successfully");
       }
-    });
+  });
 }
-
 
 var Bot = function(){};
 
