@@ -3,6 +3,7 @@ var twit = require('twit');
 var config = require('./../js/config.js');
 var Twitter = new twit(config);
 
+var WordToTweet = require('./../js/syllable.js');
 
 function tweetNow(tweetTxt) {
     var tweet = {
@@ -18,38 +19,13 @@ function tweetNow(tweetTxt) {
     });
 }
 
-tweetTxt = 'hello world';
-tweetNow(tweetTxt);
 
+var Bot = function(){};
 
-// var retweet = function() {
-//   var parameters = {
-//     q:  '#epicodus, #Epicodus, #epicodusStudent, #EpicodusStudent',
-//     // result_type: 'recent',
-//     // lang: 'en'
-//   }
-//
-//   Twitter.get('search/tweets', parameters, function(err, data){
-//     if (!err) {
-//       console.log("data is " + data);
-//       var retweetId = data.statuses[0].id_str;
-//       Twitter.post('statuses/retweet/:id',
-//       {
-//         id: retweetId
-//       },
-//         function(err, response) {
-//         if (response) {
-//           console.log('Retweeted');
-//         }
-//         if (err) {
-//           console.log('there was an error in retweet');
-//         }
-//       });
-//     }
-//     else {
-//       console.log('error while searching');
-//     }
-//   });
-// }
-//
-// retweet();
+Bot.prototype.checkSyllables = function(newWord, syllables)
+{
+  tweetTxt = newWord + " has " + syllables + " syllables";
+  tweetNow(tweetTxt);
+}
+
+exports.botModule = Bot;
