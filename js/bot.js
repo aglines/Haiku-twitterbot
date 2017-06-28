@@ -1,9 +1,7 @@
-//twitter requirements
 var twit = require('twit');
 var config = require('./../js/config.js');
 var Twitter = new twit(config);
-
-var WordToTweet = require('./../js/syllable.js');
+var WordToTweet = require('./../js/syllable_new.js');
 
 function tweetNow(tweetTxt) {
     var tweet = {

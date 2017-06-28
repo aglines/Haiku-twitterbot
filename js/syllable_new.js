@@ -1,12 +1,7 @@
 const datamuse = require('datamuse');
 var Bot = require('./../js/bot.js').botModule;
 
-
-
-
 var dictionary = JSON.parse('["one", "seven", "twenty"]');
-
-
 
 //========================================
 function getRandomWord(min, max) {
@@ -23,13 +18,8 @@ assembleHaiku();
 function assembleHaiku() {
   var haikuSentence = [];
   var haikuSentenceSyllables = 0;
-
   for (i = 0 ; i < 5 ; i++) {
-  // while (haikuSentenceSyllables < 5) {
-
     var newWord = getRandomWord(0, dictionary.length-1);
-    // console.log("new word = " + newWord);
-
     datamuse.request('words?sp=' + newWord + '&md=s&max=1')
     .then((json) => {
       newHaikuWordSyllables = json[0].numSyllables;
@@ -41,16 +31,15 @@ function assembleHaiku() {
         console.log("sentenece is now " + haikuSentence);
         haikuSentenceSyllables += newHaikuWordSyllables;
         console.log("sylls of sentence are now " + haikuSentenceSyllables);
-      }  // if
+      }
       else {
         return haikuSentence;
         console.log("total sent in else loop" + haikuSentence);
       } //else
-    });  //then/json
+    });
     console.log("sentence syllables = " + haikuSentenceSyllables);
-  }  // if or while loop
-
-}  // function
+  }
+}
 
 
 //TWEET METHOD TO BE USED LATER
