@@ -1,0 +1,37 @@
+{
+  "name": "js1-api-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aglines-epicodus/js1-api-app.git"
+  },
+  "author": "David Wilson & Andrew Glines",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aglines-epicodus/js1-api-app/issues"
+  },
+  "homepage": "https://github.com/aglines-epicodus/js1-api-app#readme",
+  "devDependencies": {
+    "bower-files": "^4.0.0",
+    "browser-sync": "^2.18.12",
+    "browserify": "^14.4.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.9.5",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "twit": "^2.2.9"
+  }
+}
