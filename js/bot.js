@@ -21,7 +21,7 @@ var Bot = function(){};
 
 Bot.prototype.tweet = function(newWord, syllables)
 {
-  tweetTxt = "Random word " + newWord + " has " + syllables + " syllables";
+  tweetTxt = "Word string " + newWord + " has " + syllables + " syllables";
   tweetNow(tweetTxt);
 }
 

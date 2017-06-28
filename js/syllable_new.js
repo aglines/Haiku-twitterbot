@@ -1,7 +1,7 @@
 const datamuse = require('datamuse');
 var Bot = require('./../js/bot.js').botModule;
 
-var dictionary = JSON.parse('["one", "seven", "twenty"]');
+var dictionary = JSON.parse('["one", "seven", "twenty", "two", "three", "four", "pant", "bird", "walk"]');
 
 //========================================
 function getRandomWord(min, max) {
@@ -25,23 +25,25 @@ function assembleHaiku() {
       newHaikuWordSyllables = json[0].numSyllables;
       newHaikuWord = json[0].word;
       console.log("new word = " + newHaikuWord);
-      console.log("syll of new word = " + newHaikuWordSyllables);
+      console.log("syllalbes in new word = " + newHaikuWordSyllables);
       if ((newHaikuWordSyllables + haikuSentenceSyllables) < 5) {
         haikuSentence.push(newHaikuWord);
-        console.log("sentenece is now " + haikuSentence);
+        console.log("Total sentence : " + haikuSentence);
         haikuSentenceSyllables += newHaikuWordSyllables;
-        console.log("sylls of sentence are now " + haikuSentenceSyllables);
+        console.log("# syllables in sentence : " + haikuSentenceSyllables);
       }
       else {
         return haikuSentence;
         console.log("total sent in else loop" + haikuSentence);
-      } //else
+      }
     });
-    console.log("sentence syllables = " + haikuSentenceSyllables);
+    if (haikuSentenceSyllables = 5){
+      var currentSyllableCheck = new Bot();
+      console.log("ENDING haikuSentence: " + haikuSentence);
+      currentSyllableCheck.tweet(haikuSentence, haikuSentenceSyllables);
+    }
   }
 }
 
 
 //TWEET METHOD TO BE USED LATER
-// var currentSyllableCheck = new Bot();
-// currentSyllableCheck.tweet(assembledHaiku);
