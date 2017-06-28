@@ -13,3 +13,4 @@ tmp/
 bower_components/
 config.js
 random_extra_stuff.js
+words.JSON
