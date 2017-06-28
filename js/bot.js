@@ -11,19 +11,19 @@ function tweetNow(tweetTxt) {
     }
     Twitter.post('statuses/update', tweet, function(err, data, response) {
       if(err){
-        console.log("Error in Replying");
+        console.log("Error in Tweeting");
       }
       else{
-        console.log("Gratitude shown successfully");
+        console.log("Succesful Tweeting");
       }
   });
 }
 
 var Bot = function(){};
 
-Bot.prototype.checkSyllables = function(newWord, syllables)
+Bot.prototype.tweet = function(newWord, syllables)
 {
-  tweetTxt = newWord + " has " + syllables + " syllables";
+  tweetTxt = "Random word " + newWord + " has " + syllables + " syllables";
   tweetNow(tweetTxt);
 }
 
