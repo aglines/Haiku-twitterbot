@@ -6,7 +6,7 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-var dictionary = JSON.parse('["one","winter","summer","spring","fall","autumn","garden","tree","plants","cherry","blossom","animals","dinosaur","green","sky","stars","lotus","wonder","gaze","sleep","sheep","pasture","fields","green","sky","stars","lotus","wonder","gaze","sleep","sheep","pasture","fields","on","in","on","in","a","of","the","about"]');
+var dictionary = JSON.parse('["one","winter","summer","spring","fall","autumn","garden","tree","plants","cherry","blossom","animals","dinosaur","green","sky","stars","lotus","wonder","gaze","sleep","sheep","pasture","fields","green","sky","stars","lotus","wonder","gaze","sleep","sheep","pasture","fields","on","in","on","in","a","of","the","about", "mountains", "love", "hate", "death", "revenge", "success", "fail", "bonsai", "frog", "lace", "curtains", "beware", "fate", "fortune"]');
 
 // var dictionary = JSON.parse(newWords);
 
