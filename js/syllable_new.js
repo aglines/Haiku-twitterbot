@@ -16,34 +16,40 @@ function getRandomWord(min, max) {
 assembleHaiku();
 
 function assembleHaiku() {
-  var haikuSentence = [];
-  var haikuSentenceSyllables = 0;
+  //INIT VARS
+  var sentence = [];
+  var sentenceSyllables = 0;
+  //FOR LOOP
   for (i = 0 ; i < 5 ; i++) {
+    //GET RANDOM WORD FROM DICT
     var newWord = getRandomWord(0, dictionary.length-1);
+    //API REQUEST
     datamuse.request('words?sp=' + newWord + '&md=s&max=1')
     .then((json) => {
-      newHaikuWordSyllables = json[0].numSyllables;
-      newHaikuWord = json[0].word;
-      console.log("new word = " + newHaikuWord);
-      console.log("syllalbes in new word = " + newHaikuWordSyllables);
-      if ((newHaikuWordSyllables + haikuSentenceSyllables) < 5) {
-        haikuSentence.push(newHaikuWord);
-        console.log("Total sentence : " + haikuSentence);
-        haikuSentenceSyllables += newHaikuWordSyllables;
-        console.log("# syllables in sentence : " + haikuSentenceSyllables);
+      //GRAB THE DATA WE WANT - WORD, SYLLS
+      newWordSyllables = json[0].numSyllables;
+      newWord = json[0].word;
+      // console.log("new word = " + newWord);
+      // console.log("syllalbes in new word = " + newWordSyllables);
+      if ((sentenceSyllables < 5) && (sentenceSyllables + newWordSyllables <= 5)) {
+        sentence.push(newWord);
+        console.log("Haiku sentence so far : " + sentence);
+        sentenceSyllables += newWordSyllables;
+        console.log("current syllables in sentence : " + sentenceSyllables);
       }
-      else {
-        return haikuSentence;
-        console.log("total sent in else loop" + haikuSentence);
-      }
-    });
-    if (haikuSentenceSyllables = 5){
-      var currentSyllableCheck = new Bot();
-      console.log("ENDING haikuSentence: " + haikuSentence);
-      currentSyllableCheck.tweet(haikuSentence, haikuSentenceSyllables);
-    }
+
+      else if (sentenceSyllables == 5) {
+        console.log("Haiku sentence at 5 sylls = " + sentence);
+        return sentence;
+      } //else
+
+      // if (sentenceSyllables = 5){ //maybe needs a .then()?????
+      //   console.log(sentenceSyllables);
+      //   // var currentSyllableCheck = new Bot();
+      //   console.log("ENDING sentence: " + sentence);
+      //   // currentSyllableCheck.tweet(sentence, sentenceSyllables);
+      // } // if
+    }); //this damn .then structure
+
   }
 }
-
-
-//TWEET METHOD TO BE USED LATER
