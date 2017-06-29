@@ -18,11 +18,34 @@ function tweetNow(tweetTxt) {
 }
 
 var Bot = function(){};
+var newBot = new Bot();
+var haikuArray = [];
 
-Bot.prototype.tweet = function(sentence, syllables)
+Bot.prototype.buildHaiku = function(sentence)
 {
-  tweetTxt = sentence;
-  tweetNow(tweetTxt);
+  haikuArray.push(sentence);
+  for (var i = 0 ; i < haikuArray.length; i++) {
+    // console.log("array " + i + " " + haikuArray[i]);
+    // console.log("array i+1: " + i + " " + haikuArray[i+1]);
+    if ((haikuArray[i] === haikuArray[i+1]) || (haikuArray[i] === haikuArray[i+2])) {
+      haikuArray.splice(i, 1);
+    }
+  } //for loop
+  console.log("haikuArray = " + haikuArray);
+  testBeforeTweet();
 }
 
+function testBeforeTweet(){
+  if (haikuArray.length === 3) {
+    newBot.tweet();
+  }
+  else{
+    console.log("array elements is " + haikuArray.length);
+  }
+}
+
+Bot.prototype.tweet = function()
+{
+  tweetNow(haikuArray);
+}
 exports.botModule = Bot;
