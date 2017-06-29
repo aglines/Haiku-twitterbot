@@ -24,6 +24,7 @@ var haikuArray = [];
 Bot.prototype.buildHaiku = function(sentence)
 {
   haikuArray.push(sentence);
+  //ERROR CHECKING DUE TO INCONSISTENT SENTENCE RETURNS
   for (var i = 0 ; i < haikuArray.length; i++) {
     // console.log("array " + i + " " + haikuArray[i]);
     // console.log("array i+1: " + i + " " + haikuArray[i+1]);
@@ -36,6 +37,7 @@ Bot.prototype.buildHaiku = function(sentence)
 }
 
 function testBeforeTweet(){
+//ERROR CHECKING DUE TO INCONSISTENT HAIKU ARRAY LENGTH, DUE TO INCONSISTENT ASSEMBLY
   if (haikuArray.length === 3) {
     newBot.tweet();
   }
