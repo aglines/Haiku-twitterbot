@@ -19,9 +19,9 @@ function tweetNow(tweetTxt) {
 
 var Bot = function(){};
 
-Bot.prototype.tweet = function(newWord, syllables)
+Bot.prototype.tweet = function(sentence, syllables)
 {
-  tweetTxt = "Word string " + newWord + " has " + syllables + " syllables";
+  tweetTxt = sentence;
   tweetNow(tweetTxt);
 }
 

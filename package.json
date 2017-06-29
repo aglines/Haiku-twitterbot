@@ -1,7 +1,7 @@
 {
   "name": "js1-api-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "* npm install twit --save * config file contains access keys etc",
   "main": "gulpfile.js",
   "scripts": {
     "test": "test"
