@@ -40,16 +40,10 @@ function assembleHaiku() {
 
       else if (sentenceSyllables == 5) {
         console.log("Haiku sentence at 5 sylls = " + sentence);
-        return sentence;
+        return sentence, sentenceSyllables;
       } //else
-
-      // if (sentenceSyllables = 5){ //maybe needs a .then()?????
-      //   console.log(sentenceSyllables);
-      //   // var currentSyllableCheck = new Bot();
-      //   console.log("ENDING sentence: " + sentence);
-      //   // currentSyllableCheck.tweet(sentence, sentenceSyllables);
-      // } // if
     }); //this damn .then structure
-
+    var currentSyllableCheck = new Bot();
+    currentSyllableCheck.tweet(sentence, sentenceSyllables);
   }
 }
